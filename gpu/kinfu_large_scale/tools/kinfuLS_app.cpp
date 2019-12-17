@@ -768,6 +768,8 @@ struct KinFuLSApp
     current_frame_cloud_view_->setViewerPose (kinfu_->getCameraPose ());
   }
 
+  //Grammaly Wrong Here --Zachary Jiang
+  /*
   void
   initRegistration ()
   {
@@ -783,7 +785,13 @@ struct KinFuLSApp
       #endif
     std::cout << "Registration mode: " << (registration_ ? "On" : "Off (not supported by source)") << std::endl;
   }
-
+*/
+    initRegistration ()
+  {
+    registration_ = capture_.providesCallback<pcl::ONIGrabber::sig_cb_openni_image_depth_image> ();
+    std::cout << "Registration mode: " << (registration_ ? "On" : "Off (not supported by source)") << std::endl;
+  }
+  
   void 
   toggleColorIntegration()
   {
