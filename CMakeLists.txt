@@ -1,6 +1,10 @@
 ### ---[ PCL global CMake
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
+## add by ZachJiang
+add_definitions(-std=c++11)
+set(CUDA_NVCC_FLAGS "-std=c++11")
+
 if(POLICY CMP0074)
   # 1. Remove with 3.12.4.
   # 2. Remove search paths with *_ROOT since they will be automatically checked
